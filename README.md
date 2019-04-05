@@ -5,26 +5,45 @@ This project was inspired by the Google Billboard puzzle, which appeared
 in places such as Cambridge, Massachusetts, Seattle, Washington, and 
 near Silicon Valley in California.
 
-![Google Billboard Puzzle](images/billboard.png?raw=true "Google Billboard Puzzle")
+![Google Billboard Puzzle](/images/billboard.PNG?raw=true "Google Billboard Puzzle")
 
+Google has been very fond of this transcendental number, even using it in their IPO filing when they pledged to raise $2,718,281,828 (*e* billion dollars) [1]. At first glance the problem doesn't appear to be that difficult (and it probably isn't for some), however, there is two fairly difficult subproblems at the root of the solution:
+
+1. How do we generate the digits of Euler's constant
+2. How do we check if the number is prime
+
+Right now, this project only focuses on answering the first question. Check out Miller-Rabin's primality test for checking whether numbers are prime. For 10 digit numbers (as in the Google Billboard puzzle), you need a more efficient algorithm like Miller-Rabin, rather than just looping through all [2 ... (k / 2)] integers. 
+
+Before jumping into how you can generate the digits of Euler's constant, I discuss two possible (hackish) solutions. 
+
+- Just Google it! 
+- Look at the distribution of primes to see how many digits you actually need. The probability that the first *k* digits doesn't contain a 10 digit prime approaches zero quickly (you really only need the first 200 digits or so for *p* < 0.0001)
+
+The above solutions should be fairly straight forward. In fact, if you only need the first 200 digits of *e* based on your probability calculations, then there are several websites available to retreive these.
+
+
+#### Turn on the spigot
+
+Now we discuss our approach, utilizing the pattern found in *e* when representing the number in mixed radix form. 
 
 #### The first 2,000,0000 digits of *e*
 
 It is worth mentioning that the folks at NASA have a website where the 
-first 2 million digits of Euler's constant have been generated. Check 
-out the link below. 
+first 2 million digits of Euler's constant have been generated [2]. It appears the digits have only been verified one or two times, but at least the first 5,000 appear correct based on my checking. 
 
-https://apod.nasa.gov/htmltest/gifcity/e.2mil
 
 #### References
-[1] Sale, A. H. J. "The calculation of e to many significant digits." 
+[1] Google's IPO filing for *e* billion dollars. https://www.ivedix.com/googles-tribute-to-euler-sparks-inspiration-in-business-intelligence/
+
+[2] Euler's Constant to 2 Million Digits. https://apod.nasa.gov/htmltest/gifcity/e.2mil
+
+[3] Sale, A. H. J. "The calculation of e to many significant digits." 
 The Computer Journal 11.2 (1968): 229-230.
 
 #### Euler's Constant to 5,000 Digits
 _________________
 Below is Euler's constant with with 5,000 decimal digits, computed using 
-the EulersSpigot tool. It should be noted that NASA has computed *e* to 
-2,000,000 digits. 
+the EulerSpigot tool. 
 ```
 e = 2.
 7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274
