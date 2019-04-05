@@ -26,6 +26,14 @@ The above solutions should be fairly straight forward. In fact, if you only need
 
 Now we discuss our approach, utilizing the pattern found in *e* when representing the number in mixed radix form. 
 
+#### Running the Haskell program
+
+To compile into a binary, run `ghc --make EulerSpigot.hs`. Then simply run the program like: `./EulerSpigot 100` to generate the first 100 digits of *e*
+
+#### Performance of Euler Spigot program written in Haskell
+
+![Performance of Euler Spigot](/images/haskellPerformance.PNG?raw=true "Euler Spigot Performance (Haskell)")
+
 #### The first 2,000,0000 digits of *e*
 
 It is worth mentioning that the folks at NASA have a website where the 
