@@ -35,7 +35,9 @@ The below metrics were collected on a laptop with an Intel(R) Core(TM) i7-8650U 
 
 ![Performance of Euler Spigot](/images/haskellPerformance.PNG?raw=true "Euler Spigot Performance (Haskell)")
 
-As you can see, generating the first 1,000 digits only takes a few seconds. However, the time it takes to collect more and more digits scales exponentially with *k* (the number of digits to generate). So generating the first 5,000 digits took 17 minutes!
+As you can see, generating the first 1,000 digits only takes a few seconds. However, the time it takes to collect more and more digits scales exponentially with *k* (the number of digits to generate). So generating the first 5,000 digits took 17 minutes! This is really slow, and I can probably improve quite a bit on it within the Haskell implementation. 
+
+However, I also implemented the Spigot algorithm in Go, which is significantly faster than Haskell. With this program you can quickly generate the digits of *e* (in fact, I did the first 50,000 digits in a matter of seconds).
 
 #### The first 2,000,000 digits of *e*
 
