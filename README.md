@@ -1,3 +1,5 @@
+
+
 ## Euler's Constant Spigot Algorithm
 ______
 
@@ -23,11 +25,19 @@ The above solutions should be fairly straight forward. In fact, if you only need
 
 #### Turn on the spigot
 
-Now we discuss our approach, utilizing the pattern found in *e* when representing the number in mixed radix form. 
+Now we discuss our approach, utilizing the pattern found in *e* when representing the number in mixed radix form. Since *e* is a transcendental number, there isn't any pattern available for generating digits when viewing the number as a base 10 decimal. However, if we view the constant in [mixed radix](https://en.wikipedia.org/wiki/Mixed_radix) form i.e. 1 + (1/1)(1 + (1/2)(1 + (1/3)(1 + (1/4)(1 + ... )))), then there is a nice pattern and we can extract digits one by one. Look at this awesome [paper](https://academic.oup.com/comjnl/article-pdf/11/2/229/1076231/11-2-229.pdf) by A.H.J. Sale for more details. 
+
+#### Running the Go Program
+
+`go run EulerSpigot.go 5000` will generate the first 5,000 digits of *e*
 
 #### Running the Haskell program
 
 To compile into a binary, run `ghc --make EulerSpigot.hs`. Then simply run the program like: `./EulerSpigot 100` to generate the first 100 digits of *e*
+
+#### Performance of Euler Spigot program written in Go
+
+This was by far the most efficient implementation. I was able to generate 50,000 digits in a matter of minutes, and 3 million digits in a couple of days.
 
 #### Performance of Euler Spigot program written in Haskell
 
@@ -35,23 +45,27 @@ The below metrics were collected on a laptop with an Intel(R) Core(TM) i7-8650U 
 
 ![Performance of Euler Spigot](/images/haskellPerformance.PNG?raw=true "Euler Spigot Performance (Haskell)")
 
-As you can see, generating the first 1,000 digits only takes a few seconds. However, the time it takes to collect more and more digits scales exponentially with *k* (the number of digits to generate). So generating the first 5,000 digits took 17 minutes! This is really slow, and I can probably improve quite a bit on it within the Haskell implementation. 
-
-However, I also implemented the Spigot algorithm in Go, which is significantly faster than Haskell. With this program you can quickly generate the digits of *e* (in fact, I did the first 50,000 digits in a matter of seconds).
+As you can see, generating the first 1,000 digits only takes a few seconds. However, the time it takes to collect more and more digits scales exponentially with *k* (the number of digits to generate). So generating the first 5,000 digits took 17 minutes! This is really slow, and I can probably improve quite a bit on it within the Haskell implementation. If I had to guess the `head` and `tail` operations on large 
 
 #### The first 2,000,000 digits of *e*
 
-It is worth mentioning that the folks at NASA have a website where the 
-first 2 million digits of Euler's constant have been generated [2]. It appears the digits have only been verified one or two times, but at least the first 5,000 appear correct based on my checking. 
+It is worth mentioning that the folks at NASA have a [website]( https://apod.nasa.gov/htmltest/gifcity/e.2mil) where the 
+first 2 million digits of Euler's constant have been generated [3]. It appears the digits have only been verified one or two times, but at least the first 5,000 appear correct based on my checking. 
+
+#### The first 500,000,000,000 digits of *e*
+
+[This guy](http://www.numberworld.org/misc_runs/e-500b.html) appears to have generated the first 500,000,000,000 (yes, that's 500 BILLION) digits of *e* [4]! And it only took 12 days! 
 
 
 #### References
 [1] Google's IPO filing for *e* billion dollars. https://www.ivedix.com/googles-tribute-to-euler-sparks-inspiration-in-business-intelligence/
 
-[2] Euler's Constant to 2 Million Digits. https://apod.nasa.gov/htmltest/gifcity/e.2mil
-
-[3] Sale, A. H. J. "The calculation of e to many significant digits." 
+[2] Sale, A. H. J. "The calculation of e to many significant digits." 
 The Computer Journal 11.2 (1968): 229-230.
+
+[3] Euler's Constant to 2 Million Digits. https://apod.nasa.gov/htmltest/gifcity/e.2mil
+
+[4] Generating 500 Billion Digits of *e*. http://www.numberworld.org/misc_runs/e-500b.html
 
 #### Euler's Constant to 5,000 Digits
 _________________
