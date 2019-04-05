@@ -5,6 +5,8 @@ This project was inspired by the Google Billboard puzzle, which appeared
 in places such as Cambridge, Massachusetts, Seattle, Washington, and 
 near Silicon Valley in California.
 
+![Google Billboard Puzzle](images/billboard.png?raw=true "Google Billboard Puzzle")
+
 
 #### The first 2,000,0000 digits of *e*
 
