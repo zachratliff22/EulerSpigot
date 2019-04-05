@@ -8,7 +8,7 @@ near Silicon Valley in California.
 
 ![Google Billboard Puzzle](/images/billboard.PNG?raw=true "Google Billboard Puzzle")
 
-Google has been very fond of this transcendental number, even using it in their IPO filing when they pledged to raise $2,718,281,828 (*e* billion dollars) [1]. At first glance the problem doesn't appear to be that difficult (and it probably isn't for some), however, there is two fairly difficult subproblems at the root of the solution:
+Google has been very fond of this transcendental number, even using it in their IPO filing when they pledged to raise $2,718,281,828 (*e* billion dollars) [1]. At first glance the problem doesn't appear to be that difficult (and it probably isn't for some), however, there are two fairly difficult subproblems at the root of the solution:
 
 1. How do we generate the digits of Euler's constant
 2. How do we check if the number is prime
@@ -45,7 +45,7 @@ The below metrics were collected on a laptop with an Intel(R) Core(TM) i7-8650U 
 
 ![Performance of Euler Spigot](/images/haskellPerformance.PNG?raw=true "Euler Spigot Performance (Haskell)")
 
-As you can see, generating the first 1,000 digits only takes a few seconds. However, the time it takes to collect more and more digits scales exponentially with *k* (the number of digits to generate). So generating the first 5,000 digits took 17 minutes! This is really slow, and I can probably improve quite a bit on it within the Haskell implementation. If I had to guess the `head` and `tail` operations on large 
+As you can see, generating the first 1,000 digits only takes a few seconds. However, the time it takes to collect more and more digits scales exponentially with *k* (the number of digits to generate). So generating the first 5,000 digits took 17 minutes! This is really slow, and I can probably improve quite a bit on it within the Haskell implementation.
 
 #### The first 2,000,000 digits of *e*
 
