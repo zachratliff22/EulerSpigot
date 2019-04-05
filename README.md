@@ -1,8 +1,7 @@
 ## Euler's Constant Spigot Algorithm
 ______
 
-This project was inspired by the Google Billboard puzzle, which appeared 
-in places such as Cambridge, Massachusetts, Seattle, Washington, and 
+This project was inspired by the Google Billboard puzzle, which appeared in places such as Cambridge, Massachusetts, Seattle, Washington, and 
 near Silicon Valley in California.
 
 ![Google Billboard Puzzle](/images/billboard.PNG?raw=true "Google Billboard Puzzle")
@@ -32,9 +31,13 @@ To compile into a binary, run `ghc --make EulerSpigot.hs`. Then simply run the p
 
 #### Performance of Euler Spigot program written in Haskell
 
+The below metrics were collected on a laptop with an Intel(R) Core(TM) i7-8650U CPU @ 2.11 GHz and 32 GB of RAM. 
+
 ![Performance of Euler Spigot](/images/haskellPerformance.PNG?raw=true "Euler Spigot Performance (Haskell)")
 
-#### The first 2,000,0000 digits of *e*
+As you can see, generating the first 1,000 digits only takes a few seconds. However, the time it takes to collect more and more digits scales exponentially with *k* (the number of digits to generate). So generating the first 5,000 digits took 17 minutes!
+
+#### The first 2,000,000 digits of *e*
 
 It is worth mentioning that the folks at NASA have a website where the 
 first 2 million digits of Euler's constant have been generated [2]. It appears the digits have only been verified one or two times, but at least the first 5,000 appear correct based on my checking. 
