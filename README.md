@@ -25,6 +25,8 @@ The above solutions should be fairly straight forward. In fact, if you only need
 
 #### Turn on the spigot
 
+![equation](https://latex.codecogs.com/gif.latex?e%20%3D%20%5Csum%5E%7B%5Cinfty%7D_%7Bk%3D0%7D%5Cfrac%7B1%7D%7Bk%21%7D%20%3D%201%20&plus;%20%5Cfrac%7B1%7D%7B1%7D%281%20&plus;%20%5Cfrac%7B1%7D%7B2%7D%281%20&plus;%20%5Cfrac%7B1%7D%7B3%7D%281%20&plus;%20...%29%29%29%29)
+
 Now we discuss our approach, utilizing the pattern found in *e* when representing the number in mixed radix form. Since *e* is a transcendental number, there isn't any pattern available for generating digits when viewing the number as a base 10 decimal. However, if we view the constant in [mixed radix](https://en.wikipedia.org/wiki/Mixed_radix) form i.e. 1 + (1/1)(1 + (1/2)(1 + (1/3)(1 + (1/4)(1 + ... )))), then there is a nice pattern and we can extract digits one by one. Look at this awesome [paper](https://academic.oup.com/comjnl/article-pdf/11/2/229/1076231/11-2-229.pdf) by A.H.J. Sale for more details. 
 
 #### Running the Go Program
