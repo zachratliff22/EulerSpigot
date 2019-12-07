@@ -8,7 +8,7 @@ near Silicon Valley in California.
 
 ![Google Billboard Puzzle](/images/billboard.PNG?raw=true "Google Billboard Puzzle")
 
-I have a write-up on my [personal website](http://zacharyratlilff.org/Euler-Spigot)
+I have a write-up on my [personal website](http://zacharyratliff.org/Euler-Spigot)
 
 #### Euler's Constant to 5,000 Digits
 _________________
