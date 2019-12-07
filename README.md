@@ -8,66 +8,7 @@ near Silicon Valley in California.
 
 ![Google Billboard Puzzle](/images/billboard.PNG?raw=true "Google Billboard Puzzle")
 
-Google has been very fond of this transcendental number, even using it in their IPO filing when they pledged to raise $2,718,281,828 (*e* billion dollars) [1]. At first glance the problem doesn't appear to be that difficult (and it probably isn't for some), however, there are two fairly difficult subproblems at the root of the solution:
-
-1. How do we generate the digits of Euler's constant
-2. How do we check if the number is prime
-
-Right now, this project only focuses on answering the first question. Check out Miller-Rabin's primality test for checking whether numbers are prime. For 10 digit numbers (as in the Google Billboard puzzle), you need a more efficient algorithm like Miller-Rabin, rather than just looping through all [2 ... (k / 2)] integers. 
-
-Before jumping into how you can generate the digits of Euler's constant, I discuss two possible (hackish) solutions. 
-
-- Just Google it! 
-- Look at the distribution of primes to see how many digits you actually need. The probability that the first *k* digits doesn't contain a 10 digit prime approaches zero quickly (you really only need the first 200 digits or so for *p* < 0.0001)
-
-The above solutions should be fairly straight forward. In fact, if you only need the first 200 digits of *e* based on your probability calculations, then there are several websites available to retreive these.
-
-
-#### Turn on the spigot
-
-![equation](https://latex.codecogs.com/gif.latex?e%20%3D%20%5Csum%5E%7B%5Cinfty%7D_%7Bk%3D0%7D%5Cfrac%7B1%7D%7Bk%21%7D%20%3D%201%20&plus;%20%5Cfrac%7B1%7D%7B1%7D%281%20&plus;%20%5Cfrac%7B1%7D%7B2%7D%281%20&plus;%20%5Cfrac%7B1%7D%7B3%7D%281%20&plus;%20...%29%29%29%29)
-
-Now we discuss our approach, utilizing the pattern found in *e* when representing the number in mixed radix form. Since *e* is a transcendental number, there isn't any pattern available for generating digits when viewing the number as a base 10 decimal. However, if we view the constant in [mixed radix](https://en.wikipedia.org/wiki/Mixed_radix) form i.e. 1 + (1/1)(1 + (1/2)(1 + (1/3)(1 + (1/4)(1 + ... )))), then there is a nice pattern and we can extract digits one by one. Look at this awesome [paper](https://academic.oup.com/comjnl/article-pdf/11/2/229/1076231/11-2-229.pdf) by A.H.J. Sale for more details. 
-
-#### Running the Go Program
-
-`go run EulerSpigot.go 5000` will generate the first 5,000 digits of *e*
-
-#### Running the Haskell program
-
-To compile into a binary, run `ghc --make EulerSpigot.hs`. Then simply run the program like: `./EulerSpigot 100` to generate the first 100 digits of *e*
-
-#### Performance of Euler Spigot program written in Go
-
-This was by far the most efficient implementation. I was able to generate 50,000 digits in a matter of minutes, and 3 million digits in a couple of days.
-
-#### Performance of Euler Spigot program written in Haskell
-
-The below metrics were collected on a laptop with an Intel(R) Core(TM) i7-8650U CPU @ 2.11 GHz and 32 GB of RAM. 
-
-![Performance of Euler Spigot](/images/haskellPerformance.PNG?raw=true "Euler Spigot Performance (Haskell)")
-
-As you can see, generating the first 1,000 digits only takes a few seconds. However, the time it takes to collect more and more digits scales exponentially with *k* (the number of digits to generate). So generating the first 5,000 digits took 17 minutes! This is really slow, and I can probably improve quite a bit on it within the Haskell implementation.
-
-#### The first 2,000,000 digits of *e*
-
-It is worth mentioning that the folks at NASA have a [website]( https://apod.nasa.gov/htmltest/gifcity/e.2mil) where the 
-first 2 million digits of Euler's constant have been generated [3]. It appears the digits have only been verified one or two times, but at least the first 5,000 appear correct based on my checking. 
-
-#### The first 500,000,000,000 digits of *e*
-
-[This guy](http://www.numberworld.org/misc_runs/e-500b.html) appears to have generated the first 500,000,000,000 (yes, that's 500 BILLION) digits of *e* [4]! And it only took 12 days! 
-
-
-#### References
-[1] Google's IPO filing for *e* billion dollars. https://www.ivedix.com/googles-tribute-to-euler-sparks-inspiration-in-business-intelligence/
-
-[2] Sale, A. H. J. "The calculation of e to many significant digits." 
-The Computer Journal 11.2 (1968): 229-230.
-
-[3] Euler's Constant to 2 Million Digits. https://apod.nasa.gov/htmltest/gifcity/e.2mil
-
-[4] Generating 500 Billion Digits of *e*. http://www.numberworld.org/misc_runs/e-500b.html
+I have a write-up on my [personal website](http://zacharyratlilff.org/Euler-Spigot)
 
 #### Euler's Constant to 5,000 Digits
 _________________
